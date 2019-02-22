@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Where is this 拉麵?</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <center>
+        <h1>Where is this 拉麵?</h1>
+        <h2>札幌のラーメンの画像をアップロードするとどこのラーメン屋さんのラーメンか教えてくれます。</h2>
+        <p>※現時点で 麵屋eiji, ラーメン虎, コクミンショクドウ, けせらせら の４店舗しか判別できません。</p>
+        <div class="form-group">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" id="img_file" name="img_file" class="col-sm-4">
+                <input type="submit" value="送信" class="btn">
+            </form>
+        </div>
+        <font size="5">{{sentence}}</font>
+    </center>
+
+</body>
+
+</html>
