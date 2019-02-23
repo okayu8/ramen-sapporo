@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid card col-md-8">
         <center>
             <h1>Where is this 拉麵?</h1>
             <font>札幌のラーメンの画像をアップロードするとどこのラーメン屋さんのラーメンか教えてくれます。</font>
             <p>※現時点で 麵屋eiji, ラーメン虎, コクミンショクドウ, けせらせら の４店舗しか判別できません。</p>
             <div class="form-group">
                 <form method="post" enctype="multipart/form-data">
-                    <div class="input-group col-md-3">
+                    <div class="input-group col-md-5">
                         <label class="input-group-btn">
                             <span class="btn btn-primary">
                                 Select Image<input type="file" id="img_file" name="img_file" style="display: none">
@@ -29,8 +29,8 @@
                         </label>
                         <input type="text" class="form-control" readonly="">
                     </div>
-                    <div class="input-group col-md-3" style="margin-bottom: 50px">
-                        <input type=" submit" value="送信" class="btn btn-dark" style="margin:0 0 0 auto">
+                    <div class="input-group col-md-5" style="margin-bottom: 50px">
+                        <input type="submit" value="送信" class="btn btn-dark" style="margin:0 0 0 auto">
                     </div>
                 </form>
                 <div class="card">
