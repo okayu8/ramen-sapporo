@@ -21,9 +21,14 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
-def getHitStore(stores):
-    print(stores)
-    return
+def get_store_name(store):
+    store_name = store['tagName']
+    return store_name
+
+
+def get_probability(store):
+    probability = store['probability']
+    return probability
 
 # '/' にget, postアクセスでhome()を通る
 @app.route('/', methods=['POST', 'GET'])
@@ -61,14 +66,15 @@ def home():
                 data = response.read()
                 conn.close()
                 stores = json.loads(data)
-                getHitStore(stores['predictions'])
-                print(stores)
+                store_name = get_store_name(stores['predictions'][0])
+                probability = get_probability(stores['predictions'][0])
             except Exception as e:
                 # print("[Errno {0}] {1}".format(e.errno, e.strerror))
                 print(e)
 
             # total = count_word(text)
-            return render_template('main.html', sentence=data)
+            return render_template('main.html', sentence1='多分このお店でしょう。->', store_name=store_name,
+                                   sentence2='確率：', probability=probability, )
 
         else:
             return ''' <p>'png', 'jpg', 'gif' 以外のファイルはダメなんで</p> '''
