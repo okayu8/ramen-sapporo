@@ -56,10 +56,7 @@ def home():
             try:
                 conn = http.client.HTTPSConnection(
                     'southcentralus.api.cognitive.microsoft.com')
-                #f = open("original.jpg", "rb", buffering=0)
                 f = img_file.stream
-                # conn.request("POST", "/customvision/v2.0/Prediction/a14c3964-9e4d-4cd8-b7fb-26b75796bd32/image?%s" %
-                #              params, f.readall(), headers)
                 conn.request("POST", "/customvision/v2.0/Prediction/a14c3964-9e4d-4cd8-b7fb-26b75796bd32/image?%s" %
                              params, f, headers)
                 response = conn.getresponse()
@@ -69,10 +66,8 @@ def home():
                 store_name = get_store_name(stores['predictions'][0])
                 probability = get_probability(stores['predictions'][0])
             except Exception as e:
-                # print("[Errno {0}] {1}".format(e.errno, e.strerror))
                 print(e)
 
-            # total = count_word(text)
             return render_template('main.html', sentence1='多分このお店でしょう。->', store_name=store_name,
                                    sentence2='確率：', probability=probability, )
 
